@@ -34,7 +34,7 @@ const runSearchDirectory = () => {
             departmentSearch();
             break;
 
-          case 'Find employee positions':
+          case 'Find employee positions:':
             roleSearch();
             break;
 
@@ -57,8 +57,9 @@ const runSearchDirectory = () => {
     inquirer
       .prompt({
         name: 'departmentName',
-        type: 'input',
+        type: 'list',
         message: 'Find a department:',
+        choices: ['Human Resources', 'Accounting', 'Management'],
       })
       .then((answer) => { 
         const query = 'SELECT id, departmentName FROM department WHERE ?'; 
@@ -78,15 +79,17 @@ const runSearchDirectory = () => {
     inquirer
       .prompt({
         name: 'title',
-        type: 'input',
+        type: 'list',
         message: 'Find employee positions:',
+        choices: ['HR Manager', 'HR Director', 'Auditor', 'Controller', 'Project Manager', 'Legal Analyst', 'General Counsel', 'Null'],
     }) 
     .then((answer) => { 
-      const query = 'SELECT id, title, salary, department_id FROM employees WHERE ?';
+      const query = 'SELECT id, title, salary, department_id FROM roles WHERE ?';
       connection.query(query, { title: answer.title }, (err, res) => {
         if (err) throw err;
       res.forEach(({ id, title, salary, department_id }) => {
-          console.log(`ID: ${id} || Title: ${title} || Salary: ${salary} || Department ID: ${department_id}`
+          console.log(
+            `ID: ${id} || Title: ${title} || Salary: ${salary} || Department ID: ${department_id}`
           );
         });
         runSearchDirectory();
@@ -98,15 +101,17 @@ const runSearchDirectory = () => {
     inquirer
       .prompt({
         name: 'last_name',
-        type: 'input',
+        type: 'list',
         message: 'Find employee names:',
+        choices: ['Appleseed', 'McKnobloch', 'Sandler', 'Rollins', 'Marshall', 'House', 'Crenshaw', 'Hunter'],
     })   
     .then((answer) => {
-      const query = 'SELECT id, first_name, last_name, role_id, manager_id FROM employees WHERE ?';
+      const query = 'SELECT id, first_name, last_name, role_id, manager_id FROM employee WHERE ?';
       connection.query(query, { last_name: answer.last_name }, (err, res) => {
         if (err) throw err;
       res.forEach(({ id, first_name, last_name, role_id, manager_id }) => {
-          console.log(`ID: ${id} | First Name: ${first_name} | Last Name: ${last_name} | Role ID: ${role_id} | Manager ID: ${manager_id}`
+          console.log(
+            `ID: ${id} || First Name: ${first_name} || Last Name: ${last_name} || Role ID: ${role_id} || Manager ID: ${manager_id}`
         );
         });
         runSearchDirectory();   
