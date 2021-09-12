@@ -1,5 +1,5 @@
 const mysql = require('mysql');
-const util = require ('util');
+const inquirer = require('inquirer');
 
 //establishing connection to sql databse
 const connection = mysql.createConnection({
@@ -10,8 +10,7 @@ const connection = mysql.createConnection({
     database: 'employees_db'
 });
 
-connection.connect();
-
-connection.query = util.promisity(connection.query);
-
-module.exports = connection;
+connection.connect((err) => {
+    if (err) throw err;
+    loadMainPrompts();
+  });
