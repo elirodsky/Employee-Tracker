@@ -7,7 +7,7 @@ CREATE DATABASE employees_db;
 -- Declaring use of database --
 USE employees_db;
 
--- Creating the tables "department", "roles", and "emplyee", with employees_db database --
+-- Creating the tables "department", "roles", and "employee", with employees_db database --
 CREATE TABLE department (
     id INTEGER AUTO_INCREMENT PRIMARY KEY,
     departmentName VARCHAR(30) UNIQUE NOT NULL
@@ -27,3 +27,9 @@ CREATE TABLE employee (
     role_id INTEGER NOT NULL,
     manager_id INTEGER
 );
+
+SELECT employee.first_name, employee.last_name, roles.title, roles.salary, department.departmentName
+FROM ((role
+INNER JOIN employee ON roles.id = employee.roles.id)
+INNER JOIN department ON roles.dept_id = department_id)
+ORDER BY departmentName;

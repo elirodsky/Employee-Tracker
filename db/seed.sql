@@ -1,33 +1,44 @@
-use employees_db;
+USE employees_db;
 
-INSERT INTO department 
-    (name)
-VALUES 
-    ('Human Resources');
-    ('Accounting');
-    ('Management');
-    ('Legal');
+INSERT INTO department (dept_name)
+VALUES ("Human Resources");
 
-INSERT INTO roles
-    (title, salary, department_id)
-VALUES 
-    ('HR Manager', 75000, 1);
-    ('HR Director', 100000, 1);
-    ('Auditor', 110000, 2);
-    ('Controller', 120000, 2);
-    ('Project Manager', 125000, 3);
-    ('Product Manager', 115000, 3);
-    ('Legal Analyst', 118000, 4);
-    ('General Counsel', 250000, 4);
+INSERT INTO department (dept_name)
+VALUES ("Accounting");
 
-INSERT INTO employee
-    (first_name, last_name, role_id, manager_id)
-VALUES 
-    ('Johnny', 'Appleseed', 1, NULL);
-    ('Chucky', 'McKnobloch', 2, NULL);
-    ('Bertha', 'Sandler', 3, NULL);
-    ('Henry', 'Rollins', 4, NULL);
-    ('Penny', 'Marshall', 5, NULL);
-    ('Hellen', 'House', 6, NULL);
-    ('Leonard', 'Crenshaw', 7, NULL);
-    ('Joe', 'Hunter', 8, NULL);
+INSERT INTO department (dept_name)
+VALUES ("Management");
+
+INSERT INTO department (dept_name)
+VALUES ("Legal");
+
+
+INSERT INTO roles (title, salary, department_id)
+VALUES ('HR Manager', 75, 1);
+
+INSERT INTO roles (title, salary, department_id)
+VALUES ('HR Director', 100, 1);
+
+INSERT INTO roles (title, salary, department_id)
+VALUES ('Auditor', 110, 2);
+
+INSERT INTO roles (title, salary, department_id)
+VALUES ('Controller', 120, 2);
+
+INSERT INTO roles (title, salary, department_id)
+VALUES ('Project Manager', 125, 3);
+
+INSERT INTO roles (title, salary, department_id)
+VALUES ('Product Manager', 115, 3);
+
+INSERT INTO roles (title, salary, department_id)
+VALUES ('Legal Analyst', 118, 4);
+
+INSERT INTO roles (title, salary, department_id)
+VALUES ('General Counsel', 250, 4);
+
+
+INSERT INTO employee (first_name, last_name, role_id)
+VALUES ("Johnny", "Appleseed", 1);
+
+
