@@ -70,7 +70,7 @@ getDepartments = () => {
 const departmentAdd = () => {
   inquirer
       .prompt({
-          name: 'dept_name',
+          name: 'departmentName',
           type: 'input',
           message: 'Name of Department'
       })
@@ -128,7 +128,7 @@ const roleAdd = () => {
               const newId = results.find(x => x.departmentName === dept).id;
               connection.query('INSERT INTO roles SET ?',
                   {
-                      departmentName: newId,
+                      department_id: newId,
                       title: response.title,
                       salary: response.salary
                   },

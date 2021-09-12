@@ -31,5 +31,5 @@ CREATE TABLE employee (
 SELECT employee.first_name, employee.last_name, roles.title, roles.salary, department.departmentName
 FROM ((role
 INNER JOIN employee ON roles.id = employee.roles.id)
-INNER JOIN department ON roles.dept_id = department_id)
+INNER JOIN department ON roles.department_id = department_id)
 ORDER BY departmentName;
