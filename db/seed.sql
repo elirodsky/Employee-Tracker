@@ -1,15 +1,15 @@
 USE employees_db;
 
-INSERT INTO department (dept_name)
+INSERT INTO department (departmentName)
 VALUES ("Human Resources");
 
-INSERT INTO department (dept_name)
+INSERT INTO department (departmentName)
 VALUES ("Accounting");
 
-INSERT INTO department (dept_name)
+INSERT INTO department (departmentName)
 VALUES ("Management");
 
-INSERT INTO department (dept_name)
+INSERT INTO department (departmentName)
 VALUES ("Legal");
 
 
@@ -40,5 +40,3 @@ VALUES ('General Counsel', 250, 4);
 
 INSERT INTO employee (first_name, last_name, role_id)
 VALUES ("Johnny", "Appleseed", 1);
-
-
