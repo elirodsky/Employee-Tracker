@@ -1,5 +1,10 @@
 const connection = require('./connection');
 
+connection.connect((err) => {
+  if (err) throw err;
+  loadMainPrompts();
+});
+
 class DB {
     constructor(connection) {
         this.connection = connection;
